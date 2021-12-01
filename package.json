@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "name": "space-investors",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Jody Salt <jody.salt@wealthwizards.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.cjs",
+    "start": "http-server",
+    "watch": "nodemon -e js --exec 'yarn build && yarn start'"
+  },
+  "dependencies": {
+    "http-server": "^14.0.0",
+    "nodemon": "^2.0.15",
+    "phaser": "3.55.2",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1"
+  }
+}
