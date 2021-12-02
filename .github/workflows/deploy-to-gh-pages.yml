@@ -12,6 +12,8 @@ jobs:
         id: cache-packages
         uses: actions/cache@v2
         with:
+          # to force a fresh install and skip the cache,
+          # change the version number: e.g. v1 -> v2
           key: v1-${{ hashFiles('yarn.lock') }}
           path: |
             node_modules
