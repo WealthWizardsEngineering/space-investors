@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "space-investors",
   "version": "1.0.0",
   "main": "src/index.js",
@@ -13,7 +12,9 @@
   },
   "dependencies": {
     "cypress": "^9.1.0",
+    "cypress-plugin-snapshots": "^1.4.4",
     "http-server": "^14.0.0",
+    "node": "^17.1.0",
     "nodemon": "^2.0.15",
     "phaser": "3.55.2",
     "webpack": "^5.64.4",

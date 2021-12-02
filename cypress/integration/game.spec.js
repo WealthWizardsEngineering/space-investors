@@ -7,11 +7,17 @@ describe("Space investors", () => {
       .and("have.css", "width", "800px")
       .and("have.css", "height", "600px");
   });
-  it("should have functioning movement controls", () => {
+  it("should match the screenshot", () => {
+    cy.wait(1000);
+    cy.get("canvas").toMatchImageSnapshot();
+  });
+
+  it("should allow player to move both ways", () => {
+    cy.wait(500);
     cy.get("canvas").trigger("keydown", {
       keyCode: 39,
     });
-    cy.wait(1000);
+    cy.wait(500);
     cy.get("canvas").trigger("keydown", {
       keyCode: 37,
     });
