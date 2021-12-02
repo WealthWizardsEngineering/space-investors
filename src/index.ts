@@ -1,9 +1,9 @@
 import { Game, AUTO } from "phaser";
 
-let cursors;
-let player;
+let cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+let player:Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
 
-const config = {
+const config: Phaser.Types.Core.GameConfig = {
   type: AUTO,
   width: 800,
   height: 600,
