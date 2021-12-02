@@ -7,8 +7,8 @@
   "scripts": {
     "build": "yarn node esbuild.config.cjs",
     "checkTypes": "yarn tsc --noEmit",
-    "build:dev": "yarn build & yarn checkTypes",
-    "build:prod": "yarn build && yarn checkTypes",
+    "build:dev": "yarn checkTypes & yarn build",
+    "build:prod": "yarn checkTypes && yarn build",
     "start": "http-server -c-1",
     "watch": "nodemon -e js,cjs,ts,json --ignore ./public --exec 'yarn build:dev && yarn start'",
     "e2e": "cypress open & yarn start"
