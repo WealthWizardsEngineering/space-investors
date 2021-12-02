@@ -6,8 +6,12 @@ esbuild
   .build({
     entryPoints: ["src/index.ts"],
     bundle: true,
+    minify: isProd,
     sourcemap: !isProd,
     outfile: "public/app.js",
     target: "esnext",
   })
-  .catch(() => process.exit(1));
+  .catch((error) => {
+    console.log(error);
+    process.exit(1);
+  });
