@@ -8,7 +8,7 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
-      - name: Cache Packages
+      - name: Cache Packages 💾
         id: cache-packages
         uses: actions/cache@v2
         with:
