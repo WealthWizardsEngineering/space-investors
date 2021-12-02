@@ -5,9 +5,12 @@
   "author": "Jody Salt <jody.salt@wealthwizards.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn tsc --noEmit & yarn node esbuild.config.cjs",
+    "build": "yarn node esbuild.config.cjs",
+    "checkTypes": "yarn tsc --noEmit",
+    "build:dev": "yarn build & yarn checkTypes",
+    "build:prod": "yarn build && yarn checkTypes",
     "start": "http-server -c-1",
-    "watch": "nodemon -e js,cjs,ts,json --ignore ./public --exec 'yarn build && yarn start'",
+    "watch": "nodemon -e js,cjs,ts,json --ignore ./public --exec 'yarn build:dev && yarn start'",
     "e2e": "cypress open & yarn start"
   },
   "dependencies": {
