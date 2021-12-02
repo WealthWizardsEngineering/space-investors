@@ -5,7 +5,7 @@
   "author": "Jody Salt <jody.salt@wealthwizards.com>",
   "license": "MIT",
   "scripts": {
-    "build": "yarn tsc && webpack --config webpack.config.cjs",
+    "build": "yarn tsc --noEmit && node esbuild.config.cjs",
     "start": "http-server -c-1",
     "watch": "nodemon -e js,ts,json --ignore ./dist --ignore ./public --exec 'yarn build && yarn start'",
     "e2e": "cypress open & yarn start"
