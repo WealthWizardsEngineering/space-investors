@@ -1,8 +1,5 @@
-const esbuild = require("esbuild");
-const path = require("path");
-
-esbuild
-  .build({
+require("esbuild")
+  .esbuild.build({
     entryPoints: ["src/index.ts"],
     bundle: true,
     sourcemap: true,
