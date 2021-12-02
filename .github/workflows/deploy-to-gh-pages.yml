@@ -12,7 +12,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: View dir structure
-        run: ls
+        run: ls ~/.cache/
 
       - name: Build App 🔧
         run: yarn build:prod
