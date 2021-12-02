@@ -10,7 +10,7 @@ export default class InputName extends Menu {
     this.load.image("greyButton", "/assets/ui/grey-button.png");
   }
   create() {
-    // this.sky = this.add.image(400, 300, "sky2");
+    this.sky = this.add.image(400, 300, "sky2");
 
     this.nameInput = this.add.dom(640, 360).createFromCache("form");
     this.centerButton(this.nameInput, 0);
@@ -55,9 +55,9 @@ export default class InputName extends Menu {
 
     this.confirmButton.on(
       "pointerdown",
-      function (pointer) {
+      function(pointer) {
         if (this.nameExists) {
-          this.scene.start("credits");
+          this.scene.start("game");
         }
       }.bind(this)
     );

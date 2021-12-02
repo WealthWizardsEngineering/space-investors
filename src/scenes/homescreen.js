@@ -1,6 +1,5 @@
-import { Scene } from "phaser";
-import config from "../config.js";
-import { Menu } from "./utils.js";
+import { Menu } from "./utils";
+import config from "../config";
 
 export default class HomeScreen extends Menu {
   constructor() {
@@ -30,7 +29,7 @@ export default class HomeScreen extends Menu {
       fill: "#fff",
     });
 
-    this.controlButtonText = this.add.text(400, 300, "Control", {
+    this.controlButtonText = this.add.text(400, 300, "Controls", {
       fontSize: "32px",
       fill: "#fff",
     });
@@ -46,21 +45,21 @@ export default class HomeScreen extends Menu {
 
     this.playButton.on(
       "pointerdown",
-      function (pointer) {
+      function(pointer) {
         this.scene.start("inputName");
       }.bind(this)
     );
 
     this.controlButton.on(
       "pointerdown",
-      function (pointer) {
+      function(pointer) {
         this.scene.start("controls");
       }.bind(this)
     );
 
     this.creditButton.on(
       "pointerdown",
-      function (pointer) {
+      function(pointer) {
         this.scene.start("credits");
       }.bind(this)
     );
