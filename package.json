@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn node esbuild.config.cjs",
-    "checkTypes": "yarn tsc --noEmit",
-    "build:dev": "yarn checkTypes & yarn build",
-    "build:prod": "yarn checkTypes && yarn build",
+    "check-types": "yarn tsc --noEmit",
+    "build:dev": "yarn check-types & yarn build",
+    "build:prod": "yarn check-types && yarn build",
     "start": "http-server -c-1",
     "watch": "nodemon -e js,cjs,ts,json --ignore ./public --exec 'yarn build:dev && yarn start'",
     "e2e": "cypress open & yarn start"
