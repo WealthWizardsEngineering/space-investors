@@ -1,4 +1,5 @@
 {
+  "baseUrl": "http://127.0.0.1:8080",
   "pluginsFile": "./cypress/plugins/index",
   "integrationFolder": "./cypress/integration",
   "ignoreTestFiles": ["**/__snapshots__/*", "**/__image_snapshots__/*"],
@@ -17,7 +18,7 @@
       "imageConfig": {
         "createDiffImage": true,
         "resizeDevicePixelRatio": true,
-        "threshold": 0.01,
+        "threshold": 0.02,
         "thresholdType": "percent"
       },
       "screenshotConfig": {
