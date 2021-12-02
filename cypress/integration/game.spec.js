@@ -7,4 +7,13 @@ describe("Space investors", () => {
       .and("have.css", "width", "800px")
       .and("have.css", "height", "600px");
   });
+  it("should have functioning movement controls", () => {
+    cy.get("canvas").trigger("keydown", {
+      keyCode: 39,
+    });
+    cy.wait(1000);
+    cy.get("canvas").trigger("keydown", {
+      keyCode: 37,
+    });
+  });
 });
