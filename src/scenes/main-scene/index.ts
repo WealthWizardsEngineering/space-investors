@@ -6,6 +6,10 @@ export class MainScene extends Phaser.Scene {
   player: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
   coin: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
 
+  constructor() {
+    super("game");
+  }
+
   preload() {
     this.load.image("wizard-dude", "wizard-dude.svg");
     this.load.image("wizard-bullet", "wizard-bullet.svg");
