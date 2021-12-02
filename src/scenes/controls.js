@@ -5,8 +5,8 @@ export default class InputName extends Menu {
   }
   preload() {
     this.load.image("sky2", "https://labs.phaser.io/assets/skies/space2.png");
-    this.load.image("button", "/primary-button.png");
-    this.load.image("control-diagram", "/controls.png");
+    this.load.image("button", "primary-button.png");
+    this.load.image("control-diagram", "controls.png");
   }
   create() {
     this.diagram = this.add
