@@ -8,9 +8,11 @@
   "scripts": {
     "build": "webpack --config webpack.config.cjs",
     "start": "http-server",
-    "watch": "nodemon -e js --exec 'yarn build && yarn start'"
+    "watch": "nodemon -e js --exec 'yarn build && yarn start'",
+    "e2e": "cypress open & yarn start"
   },
   "dependencies": {
+    "cypress": "^9.1.0",
     "http-server": "^14.0.0",
     "nodemon": "^2.0.15",
     "phaser": "3.55.2",
