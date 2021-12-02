@@ -11,6 +11,9 @@ jobs:
       - name: Install Packages 📦
         run: yarn install --frozen-lockfile
 
+      - name: View dir structure
+        run: ls
+
       - name: Build App 🔧
         run: yarn build:prod
 
