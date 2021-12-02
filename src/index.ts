@@ -1,22 +1,25 @@
 import { Game, AUTO, Types } from "phaser";
 
+const width: number = 800;
+const height: number = 600;
+
 let cursors: Types.Input.Keyboard.CursorKeys;
 let player: Types.Physics.Arcade.ImageWithDynamicBody;
 
 const config: Types.Core.GameConfig = {
   type: AUTO,
-  width: 800,
-  height: 600,
+  width: width,
+  height: height,
   backgroundColor: "#000",
   physics: {
     default: "arcade",
     arcade: {
-      gravity: { y: 200 },
+      // gravity: { y: 200 },
     },
   },
   scene: {
     preload() {
-      this.load.image("block", "space-ship.png");
+      this.load.image("wizard", "wizard-dude.svg");
 
       // this.load.setBaseURL('https://labs.phaser.io');
 
@@ -28,7 +31,7 @@ const config: Types.Core.GameConfig = {
     create() {
       cursors = this.input.keyboard.createCursorKeys();
 
-      player = this.physics.add.image(400, 300, "block");
+      player = this.physics.add.image(width / 2, height, "wizard");
 
       player.setCollideWorldBounds(true);
       // this.add.image(400, 300, 'sky');
@@ -57,12 +60,6 @@ const config: Types.Core.GameConfig = {
         player.setVelocityX(-300);
       } else if (cursors.right.isDown) {
         player.setVelocityX(300);
-      }
-
-      if (cursors.up.isDown) {
-        player.setVelocityY(-300);
-      } else if (cursors.down.isDown) {
-        player.setVelocityY(300);
       }
     },
   },

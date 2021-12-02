@@ -8,7 +8,7 @@
   "scripts": {
     "build": "yarn tsc && webpack --config webpack.config.cjs",
     "start": "http-server",
-    "watch": "nodemon -e js,ts,json --ignore ./dist --exec 'yarn build && yarn start'",
+    "watch": "nodemon -e js,ts,json --ignore ./dist --ignore ./public --exec 'yarn build && yarn start'",
     "e2e": "cypress open & yarn start"
   },
   "dependencies": {
