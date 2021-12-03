@@ -8,8 +8,8 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v2.3.1
 
-      - name: Cache Packages 💾
-        id: cache-packages
+      - name: Restore Cache 💾
+        id: restore-cache
         uses: actions/cache@v2
         with:
           # to force a fresh install and skip the cache,
@@ -20,7 +20,7 @@ jobs:
             ~/.cache/Cypress
 
       - name: Install Packages 📦
-        if: steps.cache-packages.outputs.cache-hit != 'true'
+        if: steps.restore-cache.outputs.cache-hit != 'true'
         run: yarn install --frozen-lockfile
 
       - name: Build App 🔧
