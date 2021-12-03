@@ -9,6 +9,7 @@ export class MainScene extends Phaser.Scene {
   coin: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
   bulletSound: any;
   homescreenSound: any;
+  background: any;
 
   constructor() {
     super("game");
@@ -24,6 +25,8 @@ export class MainScene extends Phaser.Scene {
   }
 
   create() {
+    this.background = this.add.sprite(400, 300, "background").setInteractive();
+
     this.coins = this.physics.add.group({
       key: "coin",
       repeat: 12,
