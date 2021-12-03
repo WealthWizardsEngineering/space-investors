@@ -8,7 +8,6 @@ export default class HomeScreen extends Menu {
   preload() {
     this.load.image("sky2", "https://labs.phaser.io/assets/skies/space3.png");
     this.load.image("button", "primary-button.png");
-    this.load.audio("homescreenSound", "homescreen.mp3");
   }
   create() {
     this.sky = this.add.image(400, 300, "sky2");
@@ -48,9 +47,6 @@ export default class HomeScreen extends Menu {
       "pointerdown",
       function(pointer) {
         this.scene.start("inputName");
-
-        this.homescreenSound = this.sound.add("homescreenSound");
-        this.homescreenSound.play();
       }.bind(this)
     );
 
