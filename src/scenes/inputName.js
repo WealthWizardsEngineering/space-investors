@@ -47,7 +47,7 @@ export default class InputName extends Menu {
     this.confirmButton = this.add
       .sprite(400, 300, "greyButton")
       .setInteractive();
-    this.confirmButton.setScale(3, 3);
+    this.confirmButton.setScale(4, 3);
     this.centerButton(this.confirmButton, -1);
 
     this.confirmButtonText = this.add.text(400, 300, "Confirm", {

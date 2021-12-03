@@ -20,6 +20,7 @@ export class MainScene extends Phaser.Scene {
     this.load.image("coin", "coin.svg");
     this.load.audio("homescreenSound", "homescreen.mp3");
     this.load.audio("bulletSound", "bullet.mp3");
+    this.load.image("background", "gameplay.png");
   }
 
   create() {

@@ -15,7 +15,7 @@ export default class InputName extends Menu {
 
     this.backButton = this.add.sprite(400, 300, "button").setInteractive();
     this.backButton.setScale(3, 3);
-    this.centerButton(this.backButton, -1);
+    this.centerButton(this.backButton, -2.5);
     this.centerButton(this.diagram, 1);
 
     this.backButtonText = this.add.text(400, 300, "Back", {
