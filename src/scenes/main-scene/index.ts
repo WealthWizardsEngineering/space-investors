@@ -4,7 +4,6 @@ export class MainScene extends Phaser.Scene {
   fireButton: Phaser.Input.Keyboard.Key;
   cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   player: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
-  coin: Phaser.GameObjects.Image;
   bullet: any;
   coins: any;
 
