@@ -4,7 +4,8 @@ export class MainScene extends Phaser.Scene {
   fireButton: Phaser.Input.Keyboard.Key;
   cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   player: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
-  coin: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
+  bullet: any;
+  coins: any;
 
   constructor() {
     super("game");
@@ -17,12 +18,15 @@ export class MainScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(300, 100, "coin").setScale(0.3);
-    this.add.image(360, 100, "coin").setScale(0.3);
-    this.add.image(420, 100, "coin").setScale(0.3);
-    this.add.image(300, 165, "coin").setScale(0.3);
-    this.add.image(360, 165, "coin").setScale(0.3);
-    this.add.image(420, 165, "coin").setScale(0.3);
+    this.coins = this.physics.add.group({
+      key: "coin",
+      repeat: 12,
+      setXY: { x: 70, y: 100, stepX: 50 },
+    });
+
+    this.coins.children.iterate(function(child: any) {
+      child.setScale(0.2);
+    });
 
     this.wizardBulletGroup = new WizardBulletGroup(this);
 
@@ -53,11 +57,30 @@ export class MainScene extends Phaser.Scene {
     }
 
     if (this.fireButton.isDown) {
-      this.fireWizardBullet();
+      this.bullet = this.fireWizardBullet();
+      if (!this.bullet) {
+        return;
+      }
+      // @ts-ignore
+      this.physics.add.overlap(
+        this.bullet,
+        this.coins,
+        this.removeCoin,
+        // @ts-ignore
+        null,
+        this
+      );
     }
   }
 
+  removeCoin(_: any, coin: any) {
+    coin.disableBody(true, true);
+  }
+
   fireWizardBullet() {
-    this.wizardBulletGroup.fireWizardBullet(this.player.x, this.player.y - 20);
+    return this.wizardBulletGroup.fireWizardBullet(
+      this.player.x,
+      this.player.y - 20
+    );
   }
 }
