@@ -1,18 +1,7 @@
-describe("Space investors", () => {
+describe("Game", () => {
   beforeEach(() => cy.visit("/"));
 
-  it("should load the game", () => {
-    cy.get("canvas")
-      .should("be.visible")
-      .and("have.css", "width", "800px")
-      .and("have.css", "height", "600px");
-
-    cy.get("canvas")
-      .wait(500)
-      .toMatchImageSnapshot();
-  });
-
-  it("should start the game and allow the player to move", () => {
+  it.only("should start the game and allow the player to move", () => {
     cy.get("canvas")
       .wait(400)
       .click(400, 200);
@@ -35,8 +24,8 @@ describe("Space investors", () => {
         keyCode: 37,
       });
 
-    cy.get("canvas")
-      .wait(1500)
-      .toMatchImageSnapshot();
+      cy.get("canvas")
+        .wait(1500)
+        .toMatchImageSnapshot();
   });
 });
