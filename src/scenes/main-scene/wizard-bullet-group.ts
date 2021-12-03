@@ -14,12 +14,12 @@ export class WizardBulletGroup extends Phaser.Physics.Arcade.Group {
       key: "bullet",
     });
 
-    this.delay = 100;
+    this.delay = 200;
     this.lastFireTime = 0;
   }
 
   fireWizardBullet(x: number, y: number) {
-    const bullet = this.getFirstDead(true);
+    const bullet = this.getFirstDead(false);
     const timeElapsedSinceLastFire = Date.now() - this.lastFireTime;
     if (bullet && timeElapsedSinceLastFire > this.delay) {
       this.lastFireTime = Date.now();

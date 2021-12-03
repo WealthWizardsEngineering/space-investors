@@ -36,10 +36,27 @@ export class MainScene extends Phaser.Scene {
       .setOrigin(0.5);
     this.count = 0;
 
-    this.coins = this.physics.add.group({
+    this.coins = this.physics.add.group();
+
+    this.coins.createMultiple({
       key: "coin",
-      repeat: 12,
-      setXY: { x: 70, y: 100, stepX: 50 },
+      repeat: 10,
+      setXY: { x: 105, y: 100, stepX: 60 },
+    });
+    this.coins.createMultiple({
+      key: "coin",
+      repeat: 10,
+      setXY: { x: 65, y: 135, stepX: 60 },
+    });
+    this.coins.createMultiple({
+      key: "coin",
+      repeat: 10,
+      setXY: { x: 105, y: 170, stepX: 60 },
+    });
+    this.coins.createMultiple({
+      key: "coin",
+      repeat: 10,
+      setXY: { x: 65, y: 205, stepX: 60 },
     });
 
     this.coins.children.iterate(function(child: any) {
@@ -99,7 +116,6 @@ export class MainScene extends Phaser.Scene {
 
   removeCoin(bullet: any, coin: any) {
     coin.disableBody(true, true);
-    bullet.disableBody(true, true);
     this.count++;
     this.message.setText("Score:" + this.count);
   }
