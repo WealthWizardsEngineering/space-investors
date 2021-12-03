@@ -21,16 +21,13 @@ export class MainScene extends Phaser.Scene {
   create() {
     this.coins = this.physics.add.group({
       key: "coin",
-      repeat: 6,
-      setXY: { x: 12, y: 0, stepX: 70 },
+      repeat: 12,
+      setXY: { x: 70, y: 100, stepX: 50 },
     });
 
     this.coins.children.iterate(function(child: any) {
-      child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+      child.setScale(0.2);
     });
-
-    // this.coin = this.add.sprite(300, 100, "coin");
-    // this.physics.arcade.enable([sprite, sprite2]);
 
     this.wizardBulletGroup = new WizardBulletGroup(this);
 
@@ -70,17 +67,14 @@ export class MainScene extends Phaser.Scene {
         this.bullet,
         this.coins,
         this.removeCoin,
+        // @ts-ignore
         null,
         this
       );
     }
   }
 
-  removeCoin(wizardBulletGroup: any, coin: any) {
-    console.log("fired", typeof coin);
-    console.log("coin", coin);
-    console.log("disable body:", coin.disableBody);
-
+  removeCoin(_: any, coin: any) {
     coin.disableBody(true, true);
   }
 
