@@ -1,5 +1,5 @@
 import { Menu } from "./utils.js";
-export default class InputName extends Menu {
+export default class Controls extends Menu {
   constructor() {
     super("controls");
   }
