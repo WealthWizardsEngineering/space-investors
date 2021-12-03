@@ -10,6 +10,8 @@ export class MainScene extends Phaser.Scene {
   bulletSound: any;
   homescreenSound: any;
   background: any;
+  message: Phaser.GameObjects.Text;
+  count: number;
 
   constructor() {
     super("game");
@@ -26,11 +28,35 @@ export class MainScene extends Phaser.Scene {
 
   create() {
     this.background = this.add.sprite(400, 300, "background").setInteractive();
+    this.message = this.add
+      .text(400, 40, "Score: 0", {
+        color: "#FFFFFF",
+        fontStyle: "bold",
+      })
+      .setOrigin(0.5);
+    this.count = 0;
 
-    this.coins = this.physics.add.group({
+    this.coins = this.physics.add.group();
+
+    this.coins.createMultiple({
       key: "coin",
-      repeat: 12,
-      setXY: { x: 70, y: 100, stepX: 50 },
+      repeat: 10,
+      setXY: { x: 105, y: 100, stepX: 60 },
+    });
+    this.coins.createMultiple({
+      key: "coin",
+      repeat: 10,
+      setXY: { x: 65, y: 135, stepX: 60 },
+    });
+    this.coins.createMultiple({
+      key: "coin",
+      repeat: 10,
+      setXY: { x: 105, y: 170, stepX: 60 },
+    });
+    this.coins.createMultiple({
+      key: "coin",
+      repeat: 10,
+      setXY: { x: 65, y: 205, stepX: 60 },
     });
 
     this.coins.children.iterate(function(child: any) {
@@ -90,6 +116,8 @@ export class MainScene extends Phaser.Scene {
 
   removeCoin(_: any, coin: any) {
     coin.disableBody(true, true);
+    this.count++;
+    this.message.setText("Score:" + this.count);
   }
 
   fireWizardBullet() {
