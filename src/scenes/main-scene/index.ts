@@ -4,7 +4,9 @@ export class MainScene extends Phaser.Scene {
   fireButton: Phaser.Input.Keyboard.Key;
   cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   player: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
-  coin: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
+  coin: Phaser.GameObjects.Image;
+  bullet: any;
+  coins: any;
 
   constructor() {
     super("game");
@@ -17,12 +19,18 @@ export class MainScene extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(300, 100, "coin").setScale(0.3);
-    this.add.image(360, 100, "coin").setScale(0.3);
-    this.add.image(420, 100, "coin").setScale(0.3);
-    this.add.image(300, 165, "coin").setScale(0.3);
-    this.add.image(360, 165, "coin").setScale(0.3);
-    this.add.image(420, 165, "coin").setScale(0.3);
+    this.coins = this.physics.add.group({
+      key: "coin",
+      repeat: 6,
+      setXY: { x: 12, y: 0, stepX: 70 },
+    });
+
+    this.coins.children.iterate(function(child: any) {
+      child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
+    });
+
+    // this.coin = this.add.sprite(300, 100, "coin");
+    // this.physics.arcade.enable([sprite, sprite2]);
 
     this.wizardBulletGroup = new WizardBulletGroup(this);
 
@@ -53,11 +61,33 @@ export class MainScene extends Phaser.Scene {
     }
 
     if (this.fireButton.isDown) {
-      this.fireWizardBullet();
+      this.bullet = this.fireWizardBullet();
+      if (!this.bullet) {
+        return;
+      }
+      // @ts-ignore
+      this.physics.add.overlap(
+        this.bullet,
+        this.coins,
+        this.removeCoin,
+        null,
+        this
+      );
     }
   }
 
+  removeCoin(wizardBulletGroup: any, coin: any) {
+    console.log("fired", typeof coin);
+    console.log("coin", coin);
+    console.log("disable body:", coin.disableBody);
+
+    coin.disableBody(true, true);
+  }
+
   fireWizardBullet() {
-    this.wizardBulletGroup.fireWizardBullet(this.player.x, this.player.y - 20);
+    return this.wizardBulletGroup.fireWizardBullet(
+      this.player.x,
+      this.player.y - 20
+    );
   }
 }

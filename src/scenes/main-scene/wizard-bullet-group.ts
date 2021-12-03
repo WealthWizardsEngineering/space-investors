@@ -6,7 +6,7 @@ export class WizardBulletGroup extends Phaser.Physics.Arcade.Group {
 
     this.createMultiple({
       classType: WizardBullet,
-      frameQuantity: 30,
+      frameQuantity: 1,
       active: false,
       visible: false,
       key: "bullet",
@@ -17,6 +17,7 @@ export class WizardBulletGroup extends Phaser.Physics.Arcade.Group {
     const bullet = this.getFirstDead(false);
     if (bullet) {
       bullet.fire(x, y);
+      return bullet;
     }
   }
 }
