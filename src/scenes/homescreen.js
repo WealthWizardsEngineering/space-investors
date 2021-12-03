@@ -11,8 +11,6 @@ export default class HomeScreen extends Menu {
     this.load.audio("homescreenSound", "homescreen.mp3");
   }
   create() {
-    this.homescreenSound = this.sound.add("homescreenSound");
-    this.homescreenSound.play();
     this.sky = this.add.image(400, 300, "sky2");
 
     this.playButton = this.add.sprite(400, 300, "button").setInteractive();
@@ -50,7 +48,9 @@ export default class HomeScreen extends Menu {
       "pointerdown",
       function(pointer) {
         this.scene.start("inputName");
-        this.homescreenSound.stop();
+
+        this.homescreenSound = this.sound.add("homescreenSound");
+        this.homescreenSound.play();
       }.bind(this)
     );
 
