@@ -6,6 +6,8 @@ export class MainScene extends Phaser.Scene {
   player: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
   bullet: any;
   coins: any;
+  coin: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
+  bulletSound: any;
 
   constructor() {
     super("game");
@@ -15,6 +17,7 @@ export class MainScene extends Phaser.Scene {
     this.load.image("wizard-dude", "wizard-dude.svg");
     this.load.image("wizard-bullet", "wizard-bullet.svg");
     this.load.image("coin", "coin.svg");
+    this.load.audio("bulletSound", "bullet.mp3");
   }
 
   create() {
@@ -28,6 +31,7 @@ export class MainScene extends Phaser.Scene {
       child.setScale(0.2);
     });
 
+    this.bulletSound = this.sound.add("bulletSound");
     this.wizardBulletGroup = new WizardBulletGroup(this);
 
     this.fireButton = this.input.keyboard.addKey(
@@ -70,6 +74,7 @@ export class MainScene extends Phaser.Scene {
         null,
         this
       );
+      this.bulletSound.play();
     }
   }
 

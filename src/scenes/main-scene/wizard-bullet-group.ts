@@ -1,5 +1,4 @@
 import { WizardBullet } from "./wizard-bullet";
-
 export class WizardBulletGroup extends Phaser.Physics.Arcade.Group {
   delay: number;
   lastFireTime: number;
