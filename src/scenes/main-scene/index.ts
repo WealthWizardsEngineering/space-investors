@@ -114,7 +114,7 @@ export class MainScene extends Phaser.Scene {
     }
   }
 
-  removeCoin(bullet: any, coin: any) {
+  removeCoin(_: any, coin: any) {
     coin.disableBody(true, true);
     this.count++;
     this.message.setText("Score:" + this.count);
