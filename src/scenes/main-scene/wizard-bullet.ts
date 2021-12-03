@@ -10,6 +10,7 @@ export class WizardBullet extends Phaser.Physics.Arcade.Sprite {
     this.setVisible(true);
 
     this.setVelocityY(-900);
+    this.setScale(0.1);
   }
 
   preUpdate(time: number, delta: number) {
