@@ -6,22 +6,22 @@ export default class HomeScreen extends Menu {
     super("homescreen");
   }
   preload() {
-    this.load.image("sky2", "https://labs.phaser.io/assets/skies/space3.png");
+    this.load.image("sky2", "gameplay.png");
     this.load.image("button", "primary-button.png");
   }
   create() {
     this.sky = this.add.image(400, 300, "sky2");
 
     this.playButton = this.add.sprite(400, 300, "button").setInteractive();
-    this.playButton.setScale(3, 3);
+    this.playButton.setScale(5, 3);
     this.centerButton(this.playButton, 1);
 
     this.controlButton = this.add.sprite(400, 300, "button").setInteractive();
-    this.controlButton.setScale(3, 3);
+    this.controlButton.setScale(5, 3);
     this.centerButton(this.controlButton, 0);
 
     this.creditButton = this.add.sprite(400, 300, "button").setInteractive();
-    this.creditButton.setScale(3, 3);
+    this.creditButton.setScale(5, 3);
     this.centerButton(this.creditButton, -1);
 
     this.playButtonText = this.add.text(400, 300, "Play", {

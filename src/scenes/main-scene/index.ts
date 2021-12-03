@@ -9,6 +9,7 @@ export class MainScene extends Phaser.Scene {
   coin: Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
   bulletSound: any;
   homescreenSound: any;
+  background: any;
 
   constructor() {
     super("game");
@@ -20,9 +21,12 @@ export class MainScene extends Phaser.Scene {
     this.load.image("coin", "coin.svg");
     this.load.audio("homescreenSound", "homescreen.mp3");
     this.load.audio("bulletSound", "bullet.mp3");
+    this.load.image("background", "gameplay.png");
   }
 
   create() {
+    this.background = this.add.sprite(400, 300, "background").setInteractive();
+
     this.coins = this.physics.add.group({
       key: "coin",
       repeat: 12,
