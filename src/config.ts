@@ -3,6 +3,7 @@ import HomeScreen from "./scenes/homescreen";
 import Intro from "./scenes/intro";
 import InputName from "./scenes/inputName";
 import Controls from "./scenes/controls";
+import Credits from "./scenes/credits";
 import { MainScene } from "./scenes/main-scene";
 
 const width: number = 800;
@@ -39,7 +40,7 @@ const config: config = {
   dom: {
     createContainer: true,
   },
-  scene: [HomeScreen, Intro, InputName, Controls, MainScene],
+  scene: [HomeScreen, Intro, InputName, Controls, Credits, MainScene],
 };
 
 export default config;
