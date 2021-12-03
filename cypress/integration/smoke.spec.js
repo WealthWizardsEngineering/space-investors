@@ -12,7 +12,17 @@ describe("Space investors", () => {
       .toMatchImageSnapshot();
   });
 
-  it("should allow the player to move", () => {
+  it("should start the game and allow the player to move", () => {
+    cy.get("canvas")
+      .wait(400)
+      .click(400, 200);
+
+    cy.get('input[name="name"]').type("Test User{enter}");
+
+    cy.get("canvas")
+      .wait(200)
+      .click(400, 400, { force: true });
+
     cy.get("canvas")
       .wait(200)
       .trigger("keydown", {
