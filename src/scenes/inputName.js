@@ -14,6 +14,7 @@ export default class InputName extends Menu {
   create() {
     this.sky = this.add.image(400, 300, "sky2");
     this.homescreenSound = this.sound.add("homescreenSound");
+    this.homescreenSound.loop = true;
     this.homescreenSound.play();
 
     this.nameInput = this.add.dom(640, 360).createFromCache("form");
