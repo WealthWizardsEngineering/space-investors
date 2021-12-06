@@ -3,7 +3,7 @@ describe("Game", () => {
 
   it.only("should start the game and allow the player to move", () => {
     cy.get("canvas")
-      .wait(400)
+      .wait(500)
       .click(400, 200);
 
     cy.get('input[name="name"]').type("Test User{enter}");
